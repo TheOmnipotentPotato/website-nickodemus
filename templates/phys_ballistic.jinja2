@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title> Physics simulations</title>
+        <link rel="stylesheet" type="text/css" href="static/styles/main.css" />
+        <link rel='stylesheet' type='text/css' href='static/styles/forms.css'/>
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    </head>
+    <body>
+        <div class='chart' id='graph'>
+            <script>
+                TESTER = document.getElementById('graph');
+                        var layout = {
+                            xaxis: {range: [0, 50]},
+                            yaxis: {range: [0, 50]}
+                        };
+                        var trace1 = {
+                            x: {{labels | safe}},
+                            y: {{values | safe}} 
+                        };
+                        var data = [trace1]
+
+                        Plotly.plot( TESTER, data, layout, { 
+                            margin: { t: 0 } }, {showSendToCloud:true} );
+
+                        /* Current Plotly.js version */
+                        console.log( Plotly.BUILD );
+            </script>
+            <form action="" method="post">
+                <button class="form__submit form__input" name="simulate" value="simulate">Simulate</button>
+            </form> 
+        </div>    
+    </body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<head>
+    <title> Physics simulations</title>
+    <link rel="stylesheet" type="text/css" href="static/styles/main.css" />
+</head>
+
+<body>
+    <div class='nav-bar'>
+        <a href='/'><img src="https://img.icons8.com/material-rounded/24/000000/home.png"/> Home</a>
+        <a href="/about"><img src="https://img.icons8.com/material-sharp/24/000000/about.png"/> About</a>
+        <a href="/chem"><img src="https://img.icons8.com/external-kiranshastry-solid-kiranshastry/64/000000/external-flask-advertising-kiranshastry-solid-kiranshastry.png"/> Chemistry</a>
+        <a class='active' href="/phys"><img src="https://img.icons8.com/ios-glyphs/30/000000/rocket.png"/> Physics</a>            
+        <a href='/math'><img src="https://img.icons8.com/material-rounded/24/000000/math.png"/> Math</a>
+    </div>   
+    <div class='simulation-container'>
+      <iframe name='sim-1' class='phys-sim' src='/phys_ballistic'></iframe>
+      <div class='sim-form'>
+        <form method="POST">
+          <div class='form__row'>
+            <div class="form__fieldset">
+              <label for="theta" class="form__label">Launch Angle(&Theta;):</label>
+              <input type="number" step='0.01' name="theta" id="theta" class="form__input" placeholder='Angle in degrees'/>
+            </div>
+            <div class='form__fieldset'>
+              <label for='initial_height' class='form__label'>Initial Height(H):</label>
+              <input type='number' step='0.01' name='initial height' id='initial-height' class='form__input' placeholder='Height in meters'>
+            </div>
+          </div>
+          <div class='form__row'>  
+            <div class="form__fieldset">
+              <label for="magnatude" class="form__label">Magnatude(<span class='arrow'>U</span>):</label>
+              <input type="number" step="0.01" name="magnatude" id="magnatude" class="form__input" placeholder='Launch speed(m/s)'/>
+            </div>
+
+            <div class="form__fieldset form__button_row">
+              <input
+                class="form__submit form__input"
+                type="submit"
+                value="Plot Trajectory"
+              />
+              <button class="form__submit form__input" id='clear-button' name="clear" value="clear">Clear</button>
+            </div>
+          </div>  
+        </form>
+        <p class='sim-description'> 
+          This simulates the motion of a ball being thrown in 2d space. The simulation ignores wind resitance for the sake of simplicity.
+          The greek symbol theta(&Theta;) signifies launch angle, or the angle you throw the ball with, 
+          and the magnatude of the vector(<span class='arrow'>U</span>) signifies how hard you throw the ball. If you want to throw the ball
+          from a non-zero height enter that into the Initial Height(H) field.
+        </p>
+      </div>
+    </div>
+    <script>
+      document.getElementById('initial-height').defaultValue = '0'
+    </script>
+</body>
